@@ -26,4 +26,38 @@ Install all required packages using:
 pip install -r requirements.txt
 
 ## Repository Structure
-configs.py : Manages training and evaluation parameters. dataset.py : Contains the WallDataset class and data loaders. evaluator.py : Handles probing evaluation and metric calculations. main.py : The main script for orchestrating training and evaluation workflows. models.py : Defines JEPA model components like encoders, predictors, and probers. normalizer.py : Provides data normalization utilities. output.py : Tools for result visualization and trajectory plotting. run.py : Command-line interface for training, evaluation, and augmentation. schedulers.py : Implements learning rate scheduling strategies. train.py : Contains the main training loop for JEPA models.
+
+- **`configs.py`**: Manages training and evaluation parameters.
+- **`dataset.py`**: Contains the WallDataset class and data loaders.
+- **`evaluator.py`**: Handles probing evaluation and metric calculations.
+- **`main.py`**: The main script for orchestrating training and evaluation workflows.
+- **`models.py`**: Defines JEPA model components like encoders, predictors, and probers.
+- **`normalizer.py`**: Provides data normalization utilities.
+- **`output.py`**: Tools for result visualization and trajectory plotting.
+- **`run.py`**: Command-line interface for training, evaluation, and augmentation.
+- **`schedulers.py`**: Implements learning rate scheduling strategies.
+- **`train.py`**: Contains the main training loop for JEPA models.
+
+## Usage
+
+### Data Preparation
+
+Ensure your trajectory data is formatted as follows:
+data/ ├── states.npy ├── actions.npy ├── locations.npy
+
+
+
+Place the dataset in a directory (e.g., `/scratch/`) and update file paths in `main.py` accordingly.
+
+### Training the Model
+
+Run the following command to start training:
+
+```bash
+python run.py --train --epochs <num_epochs>
+
+Key options:
+
+--train: Activates training mode.
+--epochs: Specifies the number of training epochs.
+--plot: Enables result visualization during training.
